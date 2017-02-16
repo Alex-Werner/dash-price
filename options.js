@@ -48,12 +48,13 @@ function loadOptions() {
     
     var notificationMax = options.notificationMax.get();
     var e = document.getElementById("notificationMax");
-    if(notificationMax){
+    if(notificationMax===true){
         e.checked=true;
     }
+    
     var notificationMin = options.notificationMin.get();
     var e = document.getElementById("notificationMin");
-    if(notificationMin){
+    if(notificationMin===true){
         e.checked=true;
     }
     
@@ -71,10 +72,10 @@ function saveOptions() {
     options.currency.set();
     options.divider.set();
     options.refresh.set();
-    options.notificationMax.set();
     options.lastMax.set();
-    options.notificationMin.set();
     options.lastMin.set();
+    options.notificationMax.set();
+    options.notificationMin.set();
     refreshBadgeAndTitle();
     clearInterval();
     launchInterval();
