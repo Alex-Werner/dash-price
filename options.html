@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dash price</title>
+    <script type="text/javascript" src="dash-price.js"></script>
+    <script type="text/javascript" src="options.js"></script>
+    <style type="text/css">
+        table td {
+            padding: 5px;
+        }
+        td.opt {
+            vertical-align: top;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+<h1>Dash price</h1>
+<table border=0>
+    <tr>
+        <td class="opt">Refresh rates :</td>
+        <td>
+            <select id="refresh">
+                <option value="10">10s</option>
+                <option value="30">30s</option>
+                <option value="60">60s</option>
+                <option value="120">2min</option>
+                <option value="300">5min</option>
+                <option value="600">10min</option>
+                <option value="900">15min</option>
+                <option value="1800">30min</option>
+                <option value="3600">60min</option>
+                <option value="7200">2h</option>s
+                <option value="14400">4h</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td class="opt">Price precision:</td>
+        <td>
+            <select id="precision">
+                <option value="0">0</option>
+                <option value="1">0.0</option>
+                <option value="2">0.00</option>
+                <option value="3">0.000</option>
+                <option value="4">0.0000</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td class="opt">Multiplier/Divider</td>
+        <td>
+            <select id="divider">
+                <option value="0.0001">*10000</option>
+                <option value="0.001">*1000</option>
+                <option value="0.01">*100</option>
+                <option value="0.1">*10</option>
+                <option value="1">None (*1)</option>
+                <option value="10">/10</option>
+                <option value="100">/100</option>
+                <option value="1000">/1000</option>
+                <option value="10000">/10000</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td class="opt">Displayed Currency:</td>
+        <td>
+            <select id="currency">
+                <option value="BTC">BTC</option>
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="AUD">AUD</option>
+                <option value="BGN">BGN</option>
+                <option value="BRL">BRL</option>
+                <option value="CAD">CAD</option>
+                <option value="CHF">CHR</option>
+                <option value="CNY">CNY</option>
+                <option value="CZK">CZK</option>
+                <option value="DKK">DKK</option>
+                <option value="GBP">GBP</option>
+                <option value="HKD">HKD</option>
+                <option value="HRK">HRK</option>
+                <option value="HUF">HUF</option>
+                <option value="IDR">IDR</option>
+                <option value="ILS">ILS</option>
+                <option value="INR">INR</option>
+                <option value="JPY">JPY</option>
+                <option value="KRW">KRW</option>
+                <option value="MXN">MXN</option>
+                <option value="MYR">MYR</option>
+                <option value="NOK">NOK</option>
+                <option value="NZD">NZD</option>
+                <option value="PHP">PHP</option>
+                <option value="PLN">PLN</option>
+                <option value="RON">RON</option>
+                <option value="RUB">RUB</option>
+                <option value="SEK">SEK</option>
+                <option value="SGD">SGD</option>
+                <option value="THB">THB</option>
+                <option value="ZAR">ZAR</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td class="opt">Notify when:</td>
+        <td>
+            <br>
+            <label><input type="checkbox" id="notificationMax">value</label> rises over <input id="lastMax" size=5> and keeps rising
+            <br>
+            <label><input type="checkbox" id="notificationMin">value</label> falls below <input id="lastMin" size=5> and keeps falling
+        </td>
+    </tr>
+    <tr>
+        <td>
+        <td><button id="save">Save</button>
+    </tr>
+</table>
+</body>
+</html>
