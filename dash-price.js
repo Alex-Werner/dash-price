@@ -235,7 +235,7 @@ var options = {
         get: function () {
             var p = store.get('precision');
             if (p === null) {
-                return 1;
+                return 3;
             }
             p = parseInt(p);
             return p;
@@ -312,25 +312,29 @@ var options = {
     lastMax: {
         set: function () {
             var e = document.getElementById('lastMax');
-            store.set('lastMax', e.value);
+            if(e.value>0)
+                store.set('lastMax', e.value);
         },
         get: function () {
-            var l = JSON.parse(store.get('lastMax'));
-            if (l === 0) {
-                return 0;
+            var l =0;
+            if(store.get('lastMax')>0){
+                l = JSON.parse(store.get('lastMax'));
             }
             return l;
+            
+
         }
     },
     lastMin: {
         set: function () {
             var e = document.getElementById('lastMin');
-            store.set('lastMin', e.value);
+            if(e.value>0)
+                store.set('lastMin', e.value);
         },
         get: function () {
-            var l = JSON.parse(store.get('lastMin'));
-            if (l === 0) {
-                return 0;
+            var l =1000;
+            if(store.get('lastMin')>0){
+                l = JSON.parse(store.get('lastMin'));
             }
             return l;
         }

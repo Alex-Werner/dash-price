@@ -80,6 +80,10 @@ function saveOptions() {
     clearInterval();
     launchInterval();
     loadOptions();
+    setTimeout(function () {
+        loadOptions();
+
+    },2000)
     
     
     // var precision = options.precision.get();

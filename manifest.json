@@ -2,7 +2,7 @@
   "manifest_version":2,
   "name":"Dash Price",
   "description":"Dash Price Monitor and other utilities around Dash",
-  "version":"1.2.1",
+  "version":"1.2.3",
   "background":{
     "page":"background.html"
   },
