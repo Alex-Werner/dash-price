@@ -4,25 +4,303 @@
     <title>Dash FTW!</title>
     <script type="text/javascript" src="dash-price.js"></script>
     <script type="text/javascript" src="popup.js"></script>
+    <script type="text/javascript" src="options.js"></script>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/pfdindisplaypro-inline.css">
+    <style>
+        header {
+            width: 100%;
+            border-bottom: 1px solid #dddddd;
+            box-shadow: 0 3px 3px #eeeeee;
+            height: 48px;
+            text-align: left;
+            background-image: linear-gradient(bottom, #3094E3 0%, #3094E3 100%);
+            background-image: -o-linear-gradient(bottom, #3094E3 0%, #3094E3 100%);
+            background-image: -moz-linear-gradient(bottom, #3094E3 0%, #3094E3 100%);
+            background-image: -webkit-linear-gradient(bottom, #3094E3 0%, #3094E3 100%);
+            background-image: -ms-linear-gradient(bottom, #3094E3 0%, #3094E3 100%);
+            background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #3094E3), color-stop(1, #3094E3));
+        }
+
+        #logo-icon {
+            background-image: url(images/logo_75px.png);
+            background-position: center;
+            width: 75px;
+        }
+
+        #refresh-icon {
+            background-image: url(images/refresh.png);
+            background-position: center;
+            background-size: contain;
+            width: 18px;
+            height: 25px;
+        }
+
+        #options-icon {
+            background-image: url(images/options.png);
+            background-position: center;
+            background-size: contain;
+            width: 21px;
+            height: 25px;
+        }
+
+        #github-icon {
+            background-image: url(images/github.png);
+            background-position: center;
+            background-size: contain;
+            width: 21px;
+            height: 25px;
+        }
+
+        header ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        header ul li {
+            cursor: pointer;
+            float: left;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border-right: 1px solid #ccc;
+            padding-right: 8px;
+            padding-left: 8px;
+        }
+
+        header ul li .icon {
+            display: block;
+            float: left;
+            width: 20px;
+            height: 25px;
+            background-repeat: no-repeat;
+        }
+
+        h3 {
+            margin-top: 2px;
+            margin-left: 6px;
+            margin-bottom: 4px;
+            font-family: "PFDinDisplayPro", sans-serif;
+            font-weight: 300;
+            font-size: 24px;
+            color: #00bbe8;
+            cursor: pointer;
+            max-width: 140px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        #quicklinks ul {
+            width: 220px%;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #quicklinks ul li {
+            user-select: none;
+            opacity: 1;
+            left: 0;
+            overflow: hidden;
+            position: relative;
+            padding-left: 20px;
+            cursor: pointer;
+            margin-top: 0;
+            height: 41px;
+            border-left: 4px solid #507da9;
+            border-bottom: 1px solid #9abed8;
+        }
+
+        #quicklinks ul li a {
+            box-sizing: border-box;
+            font-size: 13px;
+            border: none;
+            padding: 1px;
+            background: none;
+            display: inline-block;
+            text-decoration: none;
+            margin-top: 9px;
+            color: #2971ad;
+            width: 100%;
+            height: 100%;
+        }
+
+        #quicklinks ul li:hover {
+            background: rgba(220, 228, 240, 0.25);
+            border-left: 4px solid #bfd4f3;
+        }
+        #options-table{
+            display:none;
+        }
+        #i-love-beers {
+            font-size: 6px;
+        }
+
+    </style>
 </head>
-<body>
-    <div style="width: 200px">
-        <h3>Quicklinks</h3>
-        <a href="https://cryptowat.ch/poloniex/dashbtc" target="_blank">Cryptowatch (poloniex/dashbtc)</a>
-        <br>
-        <a href="https://www.dash.org/forum/"  target="_blank">Dash Forum</a>
-        <br>
-        <a href="https://www.reddit.com/r/dashpay/"  target="_blank">Reddit</a>
-        <br>
-        <a href="https://bitcointalk.org/index.php?topic=421615.0"  target="_blank">BitcoinTalk Thread</a>
-        <br>
-        <a href="https://www.dash.org/"  target="_blank">Dash.org</a>
-        <br>
-        <a href="https://twitter.com/dashpay"  target="_blank">Twitter</a> | <a href="https://www.youtube.com/dashorg"  target="_blank">YouTube</a>
-        <br>
-        <span style="font-size:8px">Idea ? Suggestions ? Bug ? https://github.com/Alex-Werner/dash-price </span>
-        <span style="font-size:8px">Feel free : XwdiGmBg3V9eSK5KKFJj34nNBvZuE8gm8e </span>
-    </div>
-    <!--<iframe src="https://cryptowat.ch/poloniex/dashbtc" width="800px" height="400px">-->
+<body style="width:220px; height: 390px">
+<header>
+    <ul>
+        <li id="logo-li">
+            <div id="logo-icon" class="icon"></div>
+        </li>
+        <li id="refresh-li">
+            <div id="refresh-icon" class="icon"></div>
+        </li>
+        <li id="options-li">
+            <div id="options-icon" class="icon"></div>
+        </li>
+        <li id="github-li">
+            <div id="github-icon" class="icon"></div>
+        </li>
+    </ul>
+</header>
+<div style="width: 200px" id="quicklinks">
+    <h3>Quicklinks</h3>
+    <ul>
+        <li>
+            <a href="https://cryptowat.ch/poloniex/dashbtc" target="_blank">Cryptowatch (Chart)</a>
+        </li>
+        <li>
+            <a href="https://explorer.dash.org/chain/Dash" target="_blank">Blockchain Explorer (official)</a>
+        </li>
+        <li>
+            <a href="https://www.dash.org/forum/" target="_blank">Dash Forum</a>
+        </li>
+        <li>
+            <a href="https://www.reddit.com/r/dashpay/" target="_blank">Reddit</a>
+        </li>
+        <li>
+            <a href="https://bitcointalk.org/index.php?topic=421615.0" target="_blank">BitcoinTalk Thread</a>
+        </li>
+        <li>
+            <a href="https://twitter.com/dashpay" target="_blank">Twitter</a>
+        </li>
+        <li>
+            <a href="https://www.youtube.com/dashorg" target="_blank">YouTube</a>
+        </li>
+    </ul>
+    <br>
+    <div id="i-love-beers">Want to offer me a beer ? : XwdiGmBg3V9eSK5KKFJj34nNBvZuE8gm8e</div>
+</div>
+<div id="options-table">
+    <table border=0>
+        <tr>
+            <td class="opt">Refresh rates :</td>
+            <td>
+                <select id="refresh" style="width: 100px;">
+                    <option value="10">10s</option>
+                    <option value="30">30s</option>
+                    <option value="60">60s</option>
+                    <option value="120">2min</option>
+                    <option value="300">5min</option>
+                    <option value="600">10min</option>
+                    <option value="900">15min</option>
+                    <option value="1800">30min</option>
+                    <option value="3600">60min</option>
+                    <option value="7200">2h</option>
+                    s
+                    <option value="14400">4h</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="opt">Price precision:</td>
+            <td>
+                <select id="precision" style="width: 100px;">
+                    <option value="0">0</option>
+                    <option value="1">0.0</option>
+                    <option value="2">0.00</option>
+                    <option value="3">0.000</option>
+                    <option value="4">0.0000</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="opt">Multiplier/Divider</td>
+            <td>
+                <select id="divider" style="width: 100px;">
+                    <option value="0.0001">*10000</option>
+                    <option value="0.001">*1000</option>
+                    <option value="0.01">*100</option>
+                    <option value="0.1">*10</option>
+                    <option value="1">None (*1)</option>
+                    <option value="10">/10</option>
+                    <option value="100">/100</option>
+                    <option value="1000">/1000</option>
+                    <option value="10000">/10000</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="opt">Displayed Currency:</td>
+            <td>
+                <select id="currency" style="width: 100px;">
+                    <option value="BTC">BTC</option>
+                    <option value="USD">USD</option>
+                    <option value="EUR">EUR</option>
+                    <option value="AUD">AUD</option>
+                    <option value="BGN">BGN</option>
+                    <option value="BRL">BRL</option>
+                    <option value="CAD">CAD</option>
+                    <option value="CHF">CHR</option>
+                    <option value="CNY">CNY</option>
+                    <option value="CZK">CZK</option>
+                    <option value="DKK">DKK</option>
+                    <option value="GBP">GBP</option>
+                    <option value="HKD">HKD</option>
+                    <option value="HRK">HRK</option>
+                    <option value="HUF">HUF</option>
+                    <option value="IDR">IDR</option>
+                    <option value="ILS">ILS</option>
+                    <option value="INR">INR</option>
+                    <option value="JPY">JPY</option>
+                    <option value="KRW">KRW</option>
+                    <option value="MXN">MXN</option>
+                    <option value="MYR">MYR</option>
+                    <option value="NOK">NOK</option>
+                    <option value="NZD">NZD</option>
+                    <option value="PHP">PHP</option>
+                    <option value="PLN">PLN</option>
+                    <option value="RON">RON</option>
+                    <option value="RUB">RUB</option>
+                    <option value="SEK">SEK</option>
+                    <option value="SGD">SGD</option>
+                    <option value="THB">THB</option>
+                    <option value="ZAR">ZAR</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td colspan="2" class="opt">Notify when:</td>
+        </tr>
+        <tr>
+            <td colspan="2" >
+                <br>
+                <label><input type="checkbox" id="notificationMax">value</label> rises over &nbsp;&nbsp;<input id="lastMax" size=12>
+                <br>and keeps rising
+                <br>
+                <label><input type="checkbox" id="notificationMin">value</label> falls below <input id="lastMin" size=12>
+                <br>and keeps falling
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <label><input type="checkbox" id="monitorWealth">Monitor equivalent in fiat</label> of a total of &nbsp;&nbsp;<input id="wealth" size=12>
+                <br>DASH
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <td>
+                <button id="save">Save</button>
+        </tr>
+    </table>
+</div>
 </body>
 </html>

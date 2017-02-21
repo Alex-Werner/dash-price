@@ -41,6 +41,7 @@ Google Chrome extension that shows dash price in USD and monitor it
     * THB
     * ZAR
 - Handle multiple precision
+- Able to monitor the fiat equivalent of your wealth in dash instead of the price
 - Allow you to multiply/divide the price (Useful for some money like KRW where 1 Dash = 22311 KRW, you might want to count with K KRW (ie : 22.311K KRW)
 - Allow you to select the refresh rate from 10s to once every 4 hours
 

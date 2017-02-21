@@ -1,23 +1,33 @@
 window.addEventListener("load", loadBackground());
 var fetchInterval;
 function loadBackground() {
-    prepareBadge();
-    prepareListener();
+    var valid = store.validateIntegrity();
+    if(valid){
+        prepareBadge();
+        prepareListener();
     
     
-    DashPrice
-        .fetch
-        .currencyList()
-        .then(function () {
-            DashPrice
-                .fetch
-                .dashPrice()
-                .then(function () {
-                    setTitle();
-                    setBadge();
-                    launchInterval();
-                })
-        })
+        DashPrice
+            .fetch
+            .currencyList()
+            .then(function () {
+                DashPrice
+                    .fetch
+                    .dashPrice()
+                    .then(function () {
+                        setTitle();
+                        if(shouldMonitorWealth()===true){
+                            var wealth = DashPrice.getWealth()
+                            setBadge(wealth);
+                        }else{
+                            setBadge();
+                        }
+                        launchInterval();
+                    })
+            })
+    }else{
+        loadBackground();
+    }
 }
 
 function fetchDashPrice(cb) {

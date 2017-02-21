@@ -65,6 +65,16 @@ function loadOptions() {
     var lastMin = options.lastMin.get();
     var e = document.getElementById("lastMin");
     e.value = lastMin;
+    
+    var monitorWealth = options.monitorWealth.get();
+    var e = document.getElementById("monitorWealth");
+    if(monitorWealth===true){
+        e.checked=true;
+    }
+    
+    var wealth = options.wealth.get();
+    var e = document.getElementById("wealth");
+    e.value = wealth;
 }
 
 function saveOptions() {
@@ -76,6 +86,8 @@ function saveOptions() {
     options.lastMin.set();
     options.notificationMax.set();
     options.notificationMin.set();
+    options.monitorWealth.set();
+    options.wealth.set();
     refreshBadgeAndTitle();
     clearInterval();
     launchInterval();
