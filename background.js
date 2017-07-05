@@ -13,7 +13,7 @@ function loadBackground() {
             .then(function () {
                 DashPrice
                     .fetch
-                    .dashPrice()
+                    .vergePrice()
                     .then(function () {
                         setTitle();
                         if(shouldMonitorWealth()===true){
@@ -33,7 +33,7 @@ function loadBackground() {
 function fetchDashPrice(cb) {
     DashPrice
         .fetch
-        .dashPrice()
+        .vergePrice()
         .then(function () {
             setTitle();
             setBadge();
