@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Dash FTW!</title>
+    <title>Stratis</title>
     <script type="text/javascript" src="dash-price.js"></script>
     <script type="text/javascript" src="popup.js"></script>
     <script type="text/javascript" src="options.js"></script>
@@ -11,15 +11,16 @@
         header {
             width: 100%;
             border-bottom: 1px solid #dddddd;
+			border-left: 2px solid #88888;
             box-shadow: 0 3px 3px #eeeeee;
             height: 48px;
             text-align: left;
-            background-image: linear-gradient(bottom, #3094E3 0%, #3094E3 100%);
-            background-image: -o-linear-gradient(bottom, #3094E3 0%, #3094E3 100%);
-            background-image: -moz-linear-gradient(bottom, #3094E3 0%, #3094E3 100%);
-            background-image: -webkit-linear-gradient(bottom, #3094E3 0%, #3094E3 100%);
-            background-image: -ms-linear-gradient(bottom, #3094E3 0%, #3094E3 100%);
-            background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #3094E3), color-stop(1, #3094E3));
+            background-image: linear-gradient(bottom, #0098bf 0%, #0098bf 100%);
+            background-image: -o-linear-gradient(bottom, #0098bf 0%, #0098bf 100%);
+            background-image: -moz-linear-gradient(bottom, #0098bf 0%, #0098bf 100%);
+            background-image: -webkit-linear-gradient(bottom, #0098bf 0%, #0098bf 100%);
+            background-image: -ms-linear-gradient(bottom, #0098bf 0%, #0098bf 100%);
+            background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #0098bf), color-stop(1, #0098bf));
         }
 
         #logo-icon {
@@ -83,7 +84,7 @@
             font-family: "PFDinDisplayPro", sans-serif;
             font-weight: 300;
             font-size: 24px;
-            color: #00bbe8;
+            color: #000;
             cursor: pointer;
             max-width: 140px;
             overflow: hidden;
@@ -108,8 +109,8 @@
             cursor: pointer;
             margin-top: 0;
             height: 41px;
-            border-left: 4px solid #507da9;
-            border-bottom: 1px solid #9abed8;
+            border-left: 4px solid #F7F7F7;
+            border-bottom: 1px solid #e4e4e4;
         }
 
         #quicklinks ul li a {
@@ -121,20 +122,26 @@
             display: inline-block;
             text-decoration: none;
             margin-top: 9px;
-            color: #2971ad;
+            color: #818181;
             width: 100%;
             height: 100%;
         }
 
         #quicklinks ul li:hover {
             background: rgba(220, 228, 240, 0.25);
-            border-left: 4px solid #bfd4f3;
+            border-left: 4px solid #0098bf;
         }
         #options-table{
             display:none;
         }
         #i-love-beers {
-            font-size: 6px;
+		   font-size: 9px;
+			color: #0098bf;
+			width:100%;
+        }
+		#i-love-beers2 {
+            font-size: 11px;
+			color: #000;
         }
 
     </style>
@@ -151,7 +158,7 @@
         <li id="options-li">
             <div id="options-icon" class="icon"></div>
         </li>
-        <li id="github-li">
+         <li id="github-li">
             <div id="github-icon" class="icon"></div>
         </li>
     </ul>
@@ -159,30 +166,54 @@
 <div style="width: 200px" id="quicklinks">
     <h3>Quicklinks</h3>
     <ul>
-        <li>
-            <a href="https://cryptowat.ch/poloniex/dashbtc" target="_blank">Cryptowatch (Chart)</a>
+	
+								<li>
+            <a href="https://bitcointalk.org/index.php?topic=1365894" target="_blank">Bitcointalk</a>
         </li>
-        <li>
-            <a href="https://explorer.dash.org/chain/Dash" target="_blank">Blockchain Explorer (official)</a>
+		
+													        <li>
+            <a href="https://coinmarketcap.com/currencies/verge/#markets" target="_blank">MarketCap</a>
         </li>
+
+		
         <li>
-            <a href="https://www.dash.org/forum/" target="_blank">Dash Forum</a>
+	   			 <a href="http://vergecurrency.info" target="_blank">Explorer</a>
         </li>
+		
+
+		
+						        <li>
+	   	<a href="https://vergecurrency.com/#wallets" target="_blank">Wallets</a>
+        </li>
+		
+	      <li>
+	   			 <a href="https://www.reddit.com/r/vergecurrency/" target="_blank">Reddit</a>
+        </li>
+		
+		
+										        <li>
+            <a href="https://t.me/VERGExvg" target="_blank">Telegram</a>
+        </li>
+		
+
+		
+		
         <li>
-            <a href="https://www.reddit.com/r/dashpay/" target="_blank">Reddit</a>
+            <a href="https://twitter.com/vergecurrency" target="_blank">Twitter</a>
         </li>
-        <li>
-            <a href="https://bitcointalk.org/index.php?topic=421615.0" target="_blank">BitcoinTalk Thread</a>
+		
+						        <li>  
+            <a href="http://vergecurrency.com/radio/" target="_blank">Radio</a>
         </li>
-        <li>
-            <a href="https://twitter.com/dashpay" target="_blank">Twitter</a>
-        </li>
-        <li>
-            <a href="https://www.youtube.com/dashorg" target="_blank">YouTube</a>
-        </li>
+		
+
+
+		
+
     </ul>
-    <br>
-    <div id="i-love-beers">Want to offer me a beer ? : XwdiGmBg3V9eSK5KKFJj34nNBvZuE8gm8e</div>
+    <div id="i-love-beers2">TipJar (XVG)</div>
+	 <input  id="i-love-beers"  value="DL1xDY39nT3TowUkPgy8yngSTjXfEWv6Qs" readonly /> </div> 
+	
 </div>
 <div id="options-table">
     <table border=0>
@@ -292,7 +323,7 @@
         <tr>
             <td colspan="2">
                 <label><input type="checkbox" id="monitorWealth">Monitor equivalent in fiat</label> of a total of &nbsp;&nbsp;<input id="wealth" size=12>
-                <br>DASH
+                <br>XVG
             </td>
         </tr>
         <tr>
