@@ -50,7 +50,7 @@ function loadPopup() {
     
         var dashIcon = document.getElementById("logo-icon");
         dashIcon.onclick=function(e){
-            var redirectWindow = window.open('https://www.dash.org', '_blank');
+            var redirectWindow = window.open('http://vergecurrency.com/', '_blank');
             redirectWindow.location;
         };
         var refreshIcon = document.getElementById("refresh-icon");
@@ -64,7 +64,7 @@ function loadPopup() {
         }; 
         var githubIcon = document.getElementById("github-icon");
         githubIcon.onclick=function(e){
-            var redirectWindow = window.open('https://github.com/Alex-Werner/dash-price', '_blank');
+            var redirectWindow = window.open('https://github.com/microtaha/dash-price', '_blank');
             redirectWindow.location;
         };
     }
