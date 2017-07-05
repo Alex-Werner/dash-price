@@ -1,8 +1,8 @@
-var dashInt;
+var vergeInt;
 var ecbInt;
 
 function displayStuff() {
-    var dash = "" +
+    var verge = "" +
         "     ;;;;;;;;;;;;;;;    ;;;;;;;;;;;;;;`   .;;;;;;;;;;;;;;;  ;;;;        ;;;;\n" +
         "    .;;;;;;;;;;;;;;;.  ;;;;;;;;;;;;;;;;  .;;;;;;;;;;;;;;;` .;;;;       `;;;;\n" +
         "    ;;;;;;;;;;;;;;;;. `;;;;;;;;;;;;;;;;  ;;;;;;;;;;;;;;;;  ;;;;        ;;;;`\n" +
@@ -15,13 +15,13 @@ function displayStuff() {
         "     ;;;;;;;;;;;;;;;;` :;;;.       `;;;;  ;;;;;;;;;;;;;;;;  ;;;;        ;;;;\n" +
         "     ;;;;;;;;;;;;;;;;  ;;;;        ;;;;` :;;;;;;;;;;;;;;;   ;;;;        ;;;;\n" +
         "    .;;;;;;;;;;;;;;:   ;;;;        ;;;;  ;;;;;;;;;;;;;;;`  :;;;.       `;;;:\n"
-    console.log(dash);
+    console.log(verge);
 }
 function setTitle() {
     var curr = options.currency.get();
     var price = DashPrice.getPrice(curr);
     chrome.browserAction.setTitle({
-        'title': '1 Dash = ' + price + " " + curr
+        'title': '1 XVG = ' + price + " " + curr
     });
 };
 function setBadgeColor(color) {
@@ -70,7 +70,7 @@ function prepareBadge() {
 function refreshBadgeAndTitle() {
     DashPrice
         .fetch
-        .dashPrice()
+        .vergePrice()
         .then(function () {
             var curr = options.currency.get();
             var price = DashPrice.getPrice(curr);
@@ -110,7 +110,7 @@ function setPriceInHistory(newPrice) {
         store.set('lastMax', newPrice.toFixed(5));
     } else {
         if ((options.notificationMax.get() === true) && newPrice > options.lastMax.get()) {
-            notify('New maximum Dash price', 'The highest price is now ' + newPrice);
+            notify('New maximum XVG price', 'The highest price is now ' + newPrice);
         }
         if (newPrice > options.lastMax.get()) {
             setBadgeColor('green');
@@ -122,7 +122,7 @@ function setPriceInHistory(newPrice) {
         store.set('lastMin', newPrice.toFixed(5));
     } else {
         if ((options.notificationMin.get() === true) && newPrice < options.lastMin.get()) {
-            notify('New minimum Dash price', 'The lowest price is now ' + newPrice);
+            notify('New minimum XVG price', 'The lowest price is now ' + newPrice);
         }
         if (newPrice < options.lastMin.get()) {
             setBadgeColor('red');
@@ -145,7 +145,7 @@ function setPriceInHistory(newPrice) {
 function launchInterval() {
     var period = options.refresh.get();
     period = period * 1000;
-    dashInt = setInterval(function () {
+    vergeInt = setInterval(function () {
         refreshBadgeAndTitle();
     }, period);
     ecbInt = setInterval(function(){
@@ -197,9 +197,9 @@ var DashPrice = {
         return this.priceHistory;
     },
     fetch: {
-        dashPrice: function () {
+        vergePrice: function () {
             return AJAX
-                .get("https://api.coinmarketcap.com/v1/ticker/dash/")
+                .get("https://api.coinmarketcap.com/v1/ticker/verge/")
                 .then(function (data) {
                     if (data) {
                         data = JSON.parse(data);
@@ -458,7 +458,7 @@ var store = {
                     localStorage.setItem(_k, "false");
                     break;
                 case "precision":
-                    localStorage.setItem(_k, "2");
+                    localStorage.setItem(_k, "4");
                     break;
                 case "refresh":
                     localStorage.setItem(_k, "60");
